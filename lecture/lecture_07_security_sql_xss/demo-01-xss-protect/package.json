@@ -1,0 +1,16 @@
+{
+  "name": "demo-01-xss-protect",
+  "version": "1.0.0",
+  "description": "Do not ever allow html sent from users to be rendered as html",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

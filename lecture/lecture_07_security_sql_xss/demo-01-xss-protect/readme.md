@@ -1,0 +1,1 @@
+Do not ever allow html sent from users to be rendered as html
