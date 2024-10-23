@@ -7,10 +7,10 @@ let db = new sqlite3.Database(":memory:", (err) => {
   if (err) {
     return console.error(err.message);
   }
-
   console.log("Connected to the in-memory sqlite database.");
-}); // using variables in my project
+});
 
+// Initialize tables
 db.serialize(() => {
   db
     .run("CREATE TABLE people (first_name text, last_name text)")
@@ -18,18 +18,45 @@ db.serialize(() => {
       `INSERT INTO people (first_name, last_name)
        VALUES ('John', 'Doe'),
               ('Jane', 'Smith'),
-              ('Chuck', 'Norris')`
-      )
-      .run('CREATE TABLE secret_table(message text)')
-      .run(`INSERT INTO secret_table(message)
+              ('Chuck', 'Norris'),
+              ('Kyle', 'Thayer')`
+    )
+    .run('CREATE TABLE secret_table(message text)')
+    .run(
+      `INSERT INTO secret_table(message)
         VALUES ('The password for Kyle is: pa55w0rd'),
-               ('The treasure is hidden in the 5th floor')`
-      );
+               ('The treasure is hidden on the 5th floor')`
+    );
 });
 
-/* GET users listing. */
+// Main route to search people by first name
 router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
+  let nameSearch = req.query.nameSearch;
+  nameSearch = nameSearch ? nameSearch : "";
+
+  if (!nameSearch) {
+    res.send("Please provide a name to search.");
+    return;
+  }
+
+  // Use a parameterized query to prevent SQL injection
+  db.all(`SELECT * FROM people WHERE first_name = "${nameSearch}"`,
+    (err, allRows) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    if (allRows.length === 0) {
+      res.send("No matching records found.");
+      return;
+    }
+
+    // Map and join to format the response
+    const matchingPeople = allRows
+      .map(row => `${row.first_name} ${row.last_name}`)
+      .join("\n");
+
+    res.send(matchingPeople);
+  });
 });
 
 export default router;
