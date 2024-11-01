@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from 'express';
 var router = express.Router();
 
@@ -31,3 +32,15 @@ router.post("/logout", async(req, res) => {
 })
 
 export default router;
+||||||| 1ea6190
+=======
+import express from 'express';
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+export default router;
+>>>>>>> 9a62a48d4693cd43b7923e7c728d54c98eb6129c

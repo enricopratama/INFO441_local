@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "class_demos",
   "version": "1.0.0",
@@ -16,3 +17,25 @@
     "loader": "^2.1.1"
   }
 }
+||||||| 1ea6190
+=======
+{
+  "name": "class_demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/info441-au24/class_demos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/info441-au24/class_demos/issues"
+  },
+  "homepage": "https://github.com/info441-au24/class_demos#readme"
+}
+>>>>>>> 9a62a48d4693cd43b7923e7c728d54c98eb6129c
