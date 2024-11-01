@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.21.0",
     "express-session": "^1.18.1",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "loader": "^2.1.1"
   }
 }

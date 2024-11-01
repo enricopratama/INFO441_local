@@ -27,9 +27,15 @@ router.post('/', async (req, res) => {
     }
 })
 
+// Format of body:
+// body: JSON.stringify({
+//     userId: id,
+//     band: bandToAdd
+// })
 router.post('/bands', async (req, res) => {
     try {
-        const userId = req.body.userId; // from URL is userId (/api/v1/users/bands?userId=)
+        
+        const userId = req.body.userId; 
         let band = req.body.band;
 
         // find the right user
