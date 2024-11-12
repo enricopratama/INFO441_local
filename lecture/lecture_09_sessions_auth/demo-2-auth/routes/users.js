@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
     res.send(`Here is where I would put information about you
       with your name being: (${req.session.account.name})
       and your username being: ${req.session.account.username}`)
-  }else{
+  } else{
     res.status(403).send("Error: You must be logged in")
   }
 });
